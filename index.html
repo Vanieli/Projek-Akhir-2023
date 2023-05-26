@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sokocha</title>
+
+    <!-- <link rel="stylesheet" href="web.css"> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+      *,
+      html {
+        margin: 0;
+        padding: 0;
+        /* overflow: auto; */
+        font-family: "Nunito", sans-serif;
+
+        scroll-behavior: smooth;
+        transition: all 1s linear;
+        scroll-padding-top: 10pc;
+
+        overflow-x: hidden;
+      }
+      body {
+        /* width: 83.9pc; */
+        margin: auto;
+        background: #ffeed3;
+      }
+
+      /* ------- */
+      .background {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      /* ------- */
+
+      /* NAVBAR NAVIGATION */
+
+      nav {
+        position: fixed;
+        height: 4.3pc;
+        width: 100%;
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        border-bottom: 1px solid rgb(160, 160, 160);
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        height: 4pc;
+        left: 3pc;
+        /* background-color: aqua; */
+      }
+      .chiyoAtas {
+        position: absolute;
+        z-index: 1;
+        background-image: url(/chiyoSokocha.png);
+        background-size: cover;
+        animation: chiyoSenang 1s infinite ease-in-out;
+
+        width: 3.2pc;
+        height: 3.2pc;
+      }
+      @keyframes chiyoSenang {
+        0%,
+        100% {
+          top: 0px;
+        }
+        50% {
+          top: 3px;
+        }
+      }
+      .sokochaLogo {
+        /* background-color:blue; */
+        position: relative;
+        z-index: 2;
+        background-image: url(/logoSokocha.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 9pc;
+        height: 3pc;
+
+        margin-top: 1pc;
+      }
+      ul {
+        /* background-color: blueviolet; */
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+        align-items: center;
+        margin: auto;
+      }
+      .navbarUL li {
+        display: flex;
+      }
+      .navbarUL a {
+        text-decoration: none;
+        font-size: 90%;
+        color: #5e5037;
+        mix-blend-mode: difference;
+      }
+      .link_msha {
+        width: 10pc;
+        height: 2pc;
+        background-color: #5e5037;
+        right: 3pc;
+        border-radius: 1pc;
+
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        gap: 7px;
+        overflow: hidden;
+
+        font-size: 14px;
+      }
+      .link_msha p {
+        z-index: 1;
+      }
+      .bullet {
+        width: 130px;
+        height: 130px;
+        background-color: #292929;
+        position: absolute;
+        border-radius: 50%;
+        bottom: -9pc;
+        margin: auto;
+        right: -0.8pc;
+        /* z-index: -1; */
+
+        transition: 1s ease;
+      }
+      .link_msha:hover .bullet {
+        bottom: -2.5pc;
+        width: 180px;
+        height: 170px;
+        right: -0.8pc;
+        transition: 1.5s;
+      }
+      .link_msha:hover {
+        transform: scale(1.05);
+        transition: 1s ease;
+      }
+
+      .pitcur {
+        background: url(/cart.png);
+        width: 13px;
+        height: 13px;
+        background-position: center;
+        background-size: cover;
+        z-index: 1;
+      }
+
+      /* FOOTER PENUTUP */
+      footer {
+        background-color: rgb(31, 31, 31);
+        width: 100%;
+        height: 23pc;
+        padding: 30px;
+        box-sizing: border-box;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        gap: 1.5pc;
+      }
+      .foot1 {
+        width: 80%;
+        height: 70%;
+
+        /* background-color: rgba(220, 20, 60, 0.192); */
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        position: relative;
+      }
+
+      /* LOGO */
+      .choseFoot {
+        width: 30%;
+        height: 90%;
+
+        /* background-color: rgba(0, 255, 255, 0.514); */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2.2pc;
+
+        position: relative;
+      }
+      .logoFoot  /* LOGO */ {
+        width: 60%;
+        height: 3.5pc;
+        /* background-color:indigo; */
+
+        background-image: url(/logoSokocha_Putih.png);
+      }
+
+      /* MEDSOS */
+      .medsos {
+        width: 60%;
+        height: 2.5pc;
+        /* background-color: darkkhaki; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.4pc;
+      }
+      .re {
+        height: 1.8pc;
+        width: 1.8pc;
+      }
+
+      .insta {
+        background-image: url(/insta.png);
+      }
+      .fb {
+        background-image: url(/fb.png);
+      }
+      .gps {
+        background-image: url(/gps.png);
+      }
+
+      /* DESKRIPSI */
+      .desFoot {
+        width: 65%;
+        height: 3pc;
+        /* background-color: brown; */
+
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+
+        position: absolute;
+        right: 0;
+        bottom: 2pc;
+      }
+      .lineLov {
+        width: 2pc;
+        height: 3px;
+        border-radius: 3px;
+        background-color: rgb(162, 137, 91);
+
+        transform: rotateZ(90deg);
+      }
+      .desFoot p {
+        font-size: 13px;
+        font-weight: 400;
+        color: wheat;
+      }
+
+      .lineSpan {
+        width: 80%;
+        height: 2px;
+        background-color: black;
+        border-radius: 3px;
+      }
+
+      .copTPCA {
+        width: 40%;
+        height: 2.3pc;
+        background-color: rgba(255, 255, 255, 0.082);
+
+        border-radius: 3pc;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        position: relative;
+      }
+      .copTPCA a {
+        color: white;
+        text-decoration: none;
+        font-size: 13px;
+      }
+
+      .copyR {
+        width: 100%;
+        height: 3pc;
+        background-color: #292929;
+        color: white;
+
+        font-size: 12px;
+        font-weight: 500;
+
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      .absolute {
+        position: absolute;
+      }
+
+      .waveBlock {
+        width: 100%;
+        position: relative;
+        /* top: 6.5pc; */
+        transform: rotateX(180deg);
+        z-index: -1;
+        margin-top: 3pc;
+      }
+      .waveBlock .getContBlock:first-child {
+        display: flex;
+        z-index: 1;
+        position: relative;
+      }
+      .waveBlock .getContBlock:nth-child(2) {
+        display: flex;
+        z-index: 2;
+        position: relative;
+        top: -7pc;
+      }
+      .getContBlock svg {
+        /* height: 10pc; */
+        width: 100%;
+      }
+      .getContBlockBalik {
+        transform: rotateY(180deg);
+      }
+
+      @keyframes bgUPDOWN {
+        0%,
+        100%,
+        65%,
+        82% {
+          background-position: 0 0;
+        }
+        50% {
+          background-position: 0 -1pc;
+        }
+        75% {
+          background-position: 0 -0.6pc;
+        }
+        90% {
+          background-position: 0 -0.3pc;
+        }
+      }
+      .anPP {
+        animation: bgUPDOWN 3s 2s infinite;
+      }
+
+      @keyframes scaleS {
+        50% {
+          transform: scale(1.15);
+        }
+        0%,
+        100% {
+          transform: scale(1.05);
+        }
+      }
+      @keyframes scaleSS {
+        50% {
+          transform: scale(1.13) scaleX(-1);
+        }
+        0%,
+        100% {
+          transform: scale(1.05) scaleX(-1);
+        }
+      }
+
+      /* -=-=-=-=-=-=-=- */
+
+      /* HEADERRR */
+      header {
+        position: relative;
+        background-image: url(headerSokocha1.png);
+        background-size: cover;
+        background-position: top center;
+        width: 100%;
+        height: 50pc;
+
+        transform: scale(.9);
+      }
+
+      /* ACHIEVEMENT */
+      .achievement {
+        width: 100%;
+        height: 38pc;
+
+        background: url(/achievementBG2.png);
+        background-size: cover;
+        /* background-position: 0 -5pc ; */
+        position: relative;
+        background-repeat: no-repeat;
+        box-shadow: 10px 5px 20px #999999;
+
+        overflow: hidden;
+
+        margin-top: 9pc;
+      }
+      .contAch {
+        width: 100%;
+        height: max-content;
+        position: relative;
+        top: 9pc;
+        margin-left: 0.8pc;
+        transform: scale(0.9);
+      }
+      .palAch {
+        width: 100%;
+        height: 15px;
+        /* background-color: aquamarine; */
+        top: -4px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+      .classPal {
+        width: 210px;
+        height: 9px;
+      }
+      .contFlag {
+        width: 100%;
+        height: max-content;
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 55px;
+      }
+      .mS {
+        width: 170px;
+        height: 17pc;
+
+        /* background: url(/flagNon.png); */
+        /* background: white; */
+
+        opacity: 0.8;
+        transition: 0.5s ease;
+        transform: translateY(-0.4pc);
+      }
+      .recommS {
+        background: url(/recommFlagS.png);
+        background-size: cover;
+      }
+      .gammingS {
+        background: url(/gammFlagS.png);
+        background-size: cover;
+      }
+      .specS {
+        background: url(/specFlagS.png);
+        background-size: cover;
+      }
+      .milkTS {
+        background: url(/milkFlagS.png);
+        background-size: cover;
+      }
+      .classicTS {
+        background: url(/classicFlagS.png);
+        background-size: cover;
+      }
+      .nonTS {
+        background: url(/nonFlagS.png);
+        background-size: cover;
+      }
+      .mS p {
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        text-align: center;
+        margin-top: 147px;
+      }
+
+      .recommS:hover {
+        opacity: 1;
+        transition: 1s ease;
+        transform: translateY(0pc);
+      }
+      .gammingS:hover {
+        opacity: 1;
+        transition: 1s ease;
+        transform: translateY(0pc);
+      }
+      .specS:hover {
+        opacity: 1;
+        transition: 1s ease;
+        transform: translateY(0pc);
+      }
+      .milkTS:hover {
+        opacity: 1;
+        transition: 1s ease;
+        transform: translateY(0pc);
+      }
+      .classicTS:hover {
+        opacity: 1;
+        transition: 1s ease;
+        transform: translateY(0pc);
+      }
+      .nonTS:hover {
+        opacity: 1;
+        transition: 1s ease;
+        transform: translateY(0pc);
+      }
+
+      .contAch a {
+        cursor: crosshair;
+        text-decoration: none;
+      }
+
+      /* CONTENTTT */
+      article {
+        width: 100%;
+        height: max-content;
+        position: relative;
+        margin-top: 10pc;
+        display: flex;
+        justify-content: center;
+
+        transform: scale(0.95);
+      }
+
+      .scaleEE {
+        transform: scale(0.9);
+      }
+
+      .dekor1 {
+        background: url(dekor1.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        width: 34pc;
+        height: 32pc;
+      }
+
+      .contentSokocha {
+        width: 90pc;
+        height: 130pc;
+        /* background-color: rgba(153, 50, 204, 0.347); */
+
+        position: relative;
+        /* margin: 40pc auto 0 auto; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20pc;
+
+        overflow: hidden;
+      }
+      .blockS {
+        width: 85%;
+        height: 25pc;
+        /* border: 1px solid black; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12pc;
+      }
+      .gall {
+        height: 22pc;
+        width: 30pc;
+        /* background-color: darkcyan; */
+        border-radius: 10px;
+        /* border: 1px solid black; */
+      }
+      .gall_1 {
+        background: url(/Tentang.jpg);
+
+        background-size: cover;
+        background-position: 50% 40%;
+        background-repeat: no-repeat;
+      }
+      .gall_2 {
+        background: url(/rooftopP.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .gall_3 {
+        background: url(/Menu.jpg);
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .backCont {
+        width: 100%;
+        height: inherit;
+        backdrop-filter: contrast(0.8);
+      }
+      .wrd_tent {
+        width: 52%;
+        /* background-color: bisque; */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .tntwrd    /* H1 */ {
+        font-weight: 900;
+        font-size: 35px;
+        color: #5e5037;
+      }
+      .pTNT      /* PARAGRAF */ {
+        font-weight: 500;
+        color: #75674e;
+      }
+      .postGall_2 {
+        flex-direction: row-reverse;
+      }
+      .tentWord_2 {
+        text-align: right;
+      }
+      .textS {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* FOOTER */
+      /* CHIYO FAM */
+      .famChiyo {
+        width: 100%;
+        height: 10pc;
+        background-color: rgba(143, 188, 143, 0.1);
+        /* margin-top: 10pc; */
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="menu.css"> -->
+    <style>
+      .menuSokocha {
+        /* background-color: #008b8b; */
+        width: 100%;
+        height: 220pc;
+        position: relative;
+        align-items: center;
+
+        margin-top: 15pc;
+      }
+
+      .titleS {
+        width: 100%;
+        height: 22.5pc;
+
+        background: url(titleMenu.png);
+        background-position: center;
+        background-size: cover;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: #fff;
+        font-weight: 800;
+        font-size: 40px;
+        letter-spacing: 10px;
+      }
+
+      /* .menuSokocha h1 
+{
+    width: 28pc;
+    margin: auto;
+    font-size: 2.5pc;
+    font-weight: 800;
+    margin-top: 9pc;
+    color: #fff;
+    text-align: center;
+} */
+
+      .barContMenu {
+        width: 80pc;
+        height: 15.03pc;
+        margin: 2pc auto 0 auto;
+        overflow: hidden;
+        position: relative;
+        /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+        background-size: cover;
+        background-position: center;
+      }
+      .barCont {
+        width: 100%;
+        height: 100%;
+
+        background-size: cover;
+        background-position: center;
+
+        display: flex;
+        justify-content: right;
+        align-items: center;
+      }
+
+      .judulMenu {
+        margin: 10pc auto 0 auto;
+        width: 26.2pc;
+        height: 2pc;
+
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* =========== */
+      /* KOTAK */
+
+      .recomm {
+        background-image: url(/recommendedTea.png);
+      }
+
+      .barRecomm {
+        background-image: url(/menuFrame-recommend.png);
+      }
+
+      .gamming {
+        background-image: url(/gammingSeries.png);
+      }
+
+      .barGamming {
+        background-image: url(/menuFrame-gamming.png);
+      }
+
+      .special {
+        background-image: url(/specialSeries.png);
+      }
+
+      .barSpecial {
+        background-image: url(/menuFrame-special.png);
+      }
+
+      .milkTea {
+        background-image: url(/milkTeaSeries.png);
+        height: 1.8pc;
+      }
+
+      .barMilkTea {
+        background-image: url(/menuFrame-milkTea.png);
+      }
+
+      .classic {
+        background-image: url(/classicTeaSeries.png);
+      }
+
+      .barClassic {
+        background-image: url(/menuFrame-classicTea.png);
+      }
+
+      .nonTea {
+        background-image: url(/nonTeaSeries.png);
+      }
+
+      .barNonTea {
+        background-image: url(/menuFrame-nonTea.png);
+      }
+
+      /* =========== */
+      /* FLAG */
+
+      .flagMenu {
+        width: 8.3pc;
+        height: 11pc;
+        background-color: darkgreen;
+
+        position: absolute;
+        left: 5pc;
+        top: 0.2pc;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: 0.2s ease;
+      }
+
+      .recFlag {
+        background: url(/recFP.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .gamFlag {
+        background: url(/gammFP.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .specFlag {
+        background: url(/specFP.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .milkFlag {
+        background: url(/milkTeaFP.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .classFlag {
+        background: url(/classFP.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .nonFlag {
+        background: url(/nonFP.png);
+        background-position: center;
+        background-size: cover;
+      }
+
+      /* ===================== */
+      /* LOGO COUNTRY */
+
+      .countLogo {
+        width: 2.8pc;
+        height: 2.7pc;
+
+        background-color: darkturquoise;
+
+        position: absolute;
+
+        transform: translateY(-7px) translateX(2px);
+      }
+
+      .recLog {
+        background: url(/RecommendedLogo.png);
+        transform: translateX(2px);
+        background-size: cover;
+      }
+      .gamLog {
+        background: url(/GammingLogo.png);
+        background-size: cover;
+        transform: translateX(-1px);
+      }
+      .speLog {
+        background: url(/SpecialLogo.png);
+        background-size: cover;
+        /* transform:translateX(-1px); */
+      }
+      .milkLog {
+        background: url(/MilkLogo.png);
+        background-size: cover;
+        transform: translateX(-1px);
+
+        width: 3.8pc;
+      }
+      .classLog {
+        background: url(/Classic.png);
+        background-size: cover;
+        transform: translateX(-1px);
+
+        width: 3.8pc;
+      }
+      .nonLog {
+        background: url(/NonTeaLogo.png);
+        background-size: cover;
+        transform: translateX(1px);
+      }
+
+      /* =========================== */
+      /* OVER-FLOW MENU */
+
+      .of_menu {
+        width: 70%;
+        height: 10pc;
+        /* background-color: hotpink; */
+        /* border: 1px solid black; */
+
+        margin-right: 4pc;
+
+        display: flex;
+        justify-content: right;
+        align-items: center;
+
+        overflow: hidden;
+      }
+      .of_menuS {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 3pc;
+      }
+
+      /* 11111111111 */
+      .kotakMenu {
+        width: 6.2pc;
+        height: 8.3pc;
+        border-radius: 1pc;
+        /* background-color: darkgreen; */
+        overflow: hidden;
+
+        position: relative;
+      }
+      .kotakFoto {
+        width: 100%;
+        height: 100%;
+
+        background: url(contoh.jpeg);
+        background-size: cover;
+        background-position: center;
+      }
+      .nameFoto {
+        width: 60px;
+        height: 20px;
+
+        position: absolute;
+        left: 0;
+        bottom: 1.3pc;
+      }
+
+      /* Recommend */
+      .recOf .kotakMenu .nameFoto {
+        background: url(/nameFoto.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .recOf .kotakMenu {
+        border: 1.5px solid #c0a030;
+      }
+
+      /* Gamming */
+      .gamOf .kotakMenu .nameFoto {
+        background: url(/nameFotoBiru.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .gamOf .kotakMenu {
+        border: 1.5px solid #4b8f9e;
+      }
+
+      /* Special */
+      .speOf .kotakMenu .nameFoto {
+        background: url(/nameFotoSpec.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .speOf .kotakMenu {
+        border: 1.5px solid #d19751;
+      }
+
+      /* Milk Tea */
+      .milOf .kotakMenu .nameFoto {
+        background: url(/nameFotoMilk.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .milOf .kotakMenu {
+        border: 1.5px solid #f3a648;
+      }
+
+      /* Classic Tea */
+      .classOf .kotakMenu .nameFoto {
+        background: url(/nameFotoClassic.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .classOf .kotakMenu {
+        border: 1.5px solid #8fc559;
+      }
+
+      /* Non  */
+      .nonOf .kotakMenu .nameFoto {
+        background: url(/nameFotoNon.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .nonOf .kotakMenu {
+        border: 1.5px solid #f39e87;
+      }
+
+      /* HOVER */
+
+      .barRecomm:hover .recFlag {
+        transform: scale(1.1) translateY(0.43pc);
+        transition: 0.5s ease;
+      }
+      .barGamming:hover .gamFlag {
+        transform: scale(1.1) translateY(0.43pc);
+        transition: 0.5s ease;
+      }
+      .barSpecial:hover .specFlag {
+        transform: scale(1.1) translateY(0.43pc);
+        transition: 0.5s ease;
+      }
+      .barMilkTea:hover .milkFlag {
+        transform: scale(1.1) translateY(0.43pc);
+        transition: 0.5s ease;
+      }
+      .barClassic:hover .classFlag {
+        transform: scale(1.1) translateY(0.43pc);
+        transition: 0.5s ease;
+      }
+      .barNonTea:hover .nonFlag {
+        transform: scale(1.1) translateY(0.43pc);
+        transition: 0.5s ease;
+      }
+    </style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="animate.css" />
+  </head>
+  <body id="body">
+    <!-- Navbar -->
+    <nav>
+      <!-- LOGO -->
+      <div class="logo absolute">
+        <div class="chiyoAtas"></div>
+        <div class="sokochaLogo"></div>
+      </div>
+      <!-- FEATURE -->
+      <ul class="navbarUL">
+        <li><a href="#body">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="">Gallery</a></li>
+        <li><a href="">About</a></li>
+      </ul>
+      <!-- ORDER LINK -->
+      <a href="order.html" class="link_msha absolute"
+        ><div class="bullet"></div>
+        <div class="pitcur"></div>
+        <p>Order Now</p></a
+      >
+    </nav>
+
+    <!-- Header -->
+    <header></header>
+
+    <!-- PRODUCT -->
+    <div class="achievement">
+      <!-- PRODUCT -->
+      <div class="contAch">
+        <div class="palAch absolute">
+          <img src="/recommPal.png" alt="" class="classPal" />
+          <img src="/gammPal.png" alt="" class="classPal" />
+          <img src="/specPal.png" alt="" class="classPal" />
+          <img src="/milkTeaPal.png" alt="" class="classPal" />
+          <img src="/classPal.png" alt="" class="classPal" />
+          <img src="/nonPal.png" alt="" class="classPal" />
+        </div>
+        <div class="contFlag">
+          <!-- RECOMMENDED -->
+          <a class="recommS mS wow fadeInDownBig" href="#recommended">
+            <p>RECOMMENDATION</p>
+          </a>
+          <!-- GAMING -->
+          <a
+            class="gammingS mS wow fadeInDownBig"
+            data-wow-delay=".1s"
+            href="#gamming"
+          >
+            <p>GAMMING</p>
+          </a>
+          <!-- SPECIAL -->
+          <a class="specS mS wow fadeInDownBig" data-wow-delay=".2s" href="#special">
+            <p>SPECIAL</p>
+          </a>
+          <!-- MILK TEA -->
+          <a class="milkTS mS wow fadeInDownBig" data-wow-delay=".3s" href="#milktea">
+            <p>MILK TEA</p>
+          </a>
+          <!-- CLASSIC TEA -->
+          <a
+            class="classicTS mS wow fadeInDownBig"
+            data-wow-delay=".4s"
+            href="#classic"
+          >
+            <p>CLASSIC</p>
+          </a>
+          <!-- NON TEA -->
+          <a class="nonTS mS wow fadeInDownBig" data-wow-delay=".5s" href="#nontea">
+            <p>NON TEA</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <article>
+      <div
+        class="dekor1 absolute scaleEE"
+        style="top: 6pc; left: 8.5pc; animation: scaleSS 5s ease infinite"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+      ></div>
+      <div
+        class="dekor1 absolute scaleEE"
+        style="top: 46pc; right: 9pc; animation: scaleS 5s ease infinite"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+      ></div>
+      <div
+        class="dekor1 absolute scaleEE"
+        style="top: 86pc; left: 9pc; animation: scaleSS 5s ease infinite"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+      ></div>
+      <div class="contentSokocha scaleEE">
+        <!-- 1 -- TENTANG SOKOCHA -->
+        <div class="postGall_1 blockS wow bounceInUp">
+          <div class="gall_1 gall"></div>
+          <div class="tentWord_1 wrd_tent">
+            <h2 class="tntwrd">TENTANG SOKOCHA</h2>
+            <p class="pTNT">
+              Sokocha sendiri diakui Reggie memang terinspirasi dari budaya
+              Jepang. Namanya diambil dari bahasa Jepang Soko yang berarti di
+              sana, dan Cha yang berarti teh, sehingga bisa diartikan bahwa di
+              sana (Sokocha) kita bisa menemukan teh.
+            </p>
+            <p class="pTNT">
+              Ia pun mencoba meracik dan mengembangkan sendiri menu berbahan
+              dasar teh yang dijual di Sokocha. Karena latar belakangnya sebagai
+              gamers , ia pun tak lupa menyisipkan elemen-elemen game ke dalam
+              menunya.
+            </p>
+          </div>
+        </div>
+        <!-- 2 -- ANIME/ GAMMER-->
+        <div class="postGall_2 blockS wow bounceInUp">
+          <div class="gall_2 gall"></div>
+          <div class="tentWord_2 wrd_tent">
+            <h2 class="textS tntwrd">COMFORT ZONE</h2>
+            <p class="textS pTNT">
+              Desain interior dari Sokocha juga menampilkan gaya estetik yang
+              kejepang-jepangan, dengan sedikit unsur wibu di dalamnya seperti
+              game dan anime.
+            </p>
+            <p class="textS pTNT">
+              Buat kamu yang sedang mencari tempat hangout dengan vibe yang asik
+              & chill di sekitaran BSD, sudah pasti harus mencoba mampir di tea
+              shop -nya MiawAug ini karena kamu pasti bakalan betah nongkrong
+              berjam-jam di sini berkat suasana yang asik banget dari Sokocha.
+            </p>
+          </div>
+        </div>
+        <!-- 1 -- TENTANG SOKOCHA -->
+        <div class="postGall_3 blockS wow bounceInUp">
+          <div class="gall_3 gall">
+            <div class="backCont"></div>
+          </div>
+          <div class="tentWord_1 wrd_tent">
+            <h2 class="tntwrd">MENU</h2>
+            <p class="pTNT">
+              Minuman di Sokocha yang tersedia cukup banyak mulai dari Milk Tea
+              sampai Non Tea. ada juga Teh edisi khusus, lho.. Cocok untuk kamu
+              para gamer dan cosplayer untuk mengisi <i>Mana</i> kalian.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- MENU -->
+    <div class="menuSokocha" >
+      <!-- title: Sokocha -->
+      <div class="titleS" id="menu">MENU</div>
+
+      <!-- Recommended -->
+      <div
+        class="recomm judulMenu"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+        id="recommended"
+      ></div>
+      <div class="barRecomm barContMenu" data-aos="zoom-out-up">
+        <div class="flagMenu recFlag">
+          <div class="countLogo recLog"></div>
+        </div>
+        <div class="barRecomm barCont">
+          <div class="of_menu">
+            <div
+              class="of_menuS recOf wow bounceInLeft"
+              style="animation-delay: 0.4s"
+            >
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gamming -->
+      <div
+        class="gamming judulMenu"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+        id="gamming"
+      ></div>
+      <div class="barGamming barContMenu" data-aos="zoom-out-up">
+        <div class="flagMenu gamFlag">
+          <div class="countLogo gamLog"></div>
+        </div>
+        <div class="barGamming barCont">
+          <div class="of_menu">
+            <div
+              class="of_menuS gamOf wow bounceInLeft"
+              style="animation-delay: 0.4s"
+            >
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Special -->
+      <div
+        class="special judulMenu"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+        id="special"
+      ></div>
+      <div class="barSpecial barContMenu" data-aos="zoom-out-up">
+        <div class="flagMenu specFlag">
+          <div class="countLogo speLog"></div>
+        </div>
+        <div class="barSpecial barCont">
+          <div class="of_menu">
+            <div
+              class="of_menuS speOf wow bounceInLeft"
+              style="animation-delay: 0.4s"
+            >
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milk Tea -->
+      <div
+        class="milkTea judulMenu"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+        id="milktea"
+      ></div>
+      <div class="barMilkTea barContMenu" data-aos="zoom-out-up">
+        <div class="flagMenu milkFlag">
+          <div class="countLogo milkLog"></div>
+        </div>
+        <div class="barMilkTea barCont">
+          <div class="of_menu">
+            <div
+              class="of_menuS milOf wow bounceInLeft"
+              style="animation-delay: 0.4s"
+            >
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Classic Tea -->
+      <div
+        class="classic judulMenu"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+        id="classic"
+      ></div>
+      <div class="barClassic barContMenu" data-aos="zoom-out-up">
+        <div class="flagMenu classFlag">
+          <div class="countLogo classLog"></div>
+        </div>
+        <div class="barClassic barCont">
+          <div class="of_menu">
+            <div
+              class="of_menuS classOf wow bounceInLeft"
+              style="animation-delay: 0.4s"
+            >
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Non Tea -->
+      <div
+        class="nonTea judulMenu"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0"
+        id="nontea"
+      ></div>
+      <div class="barNonTea barContMenu" data-aos="zoom-out-up">
+        <div class="flagMenu nonFlag">
+          <div class="countLogo nonLog"></div>
+        </div>
+        <div class="barNonTea barCont">
+          <div class="of_menu">
+            <div
+              class="of_menuS nonOf wow bounceInLeft"
+              style="animation-delay: 0.4s"
+            >
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+              <!-- Menu 1 -->
+              <div class="kotakMenu">
+                <div class="kotakFoto"></div>
+                <div class="nameFoto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- CHIYO FAMILY -->
+    <div class="famChiyo"></div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="foot1">
+        <div class="choseFoot">
+          <div class="logoFoot background"></div>
+          <div class="medsos">
+            <a href=""><div class="insta background re"></div></a>
+            <a href=""><div class="fb background re"></div></a>
+            <a href=""><div class="gps background re"></div></a>
+          </div>
+        </div>
+        <div class="desFoot">
+          <div class="lineLov"></div>
+          <p>
+            Website ini hanyalah projek kecil untuk menampilkan serta menawarkan
+            produk dari Sokocha.
+          </p>
+        </div>
+      </div>
+      <span class="lineSpan"></span>
+      <div class="copTPCA">
+        <a href="">Terms of Service</a>
+        <a href="">Privacy Policy</a>
+        <a href="">Contact Us</a>
+        <a href="">About Us</a>
+      </div>
+    </footer>
+    <div class="copyR">&copy; Copyright by BIW ~ Written & Code by BIW</div>
+
+    <script src="wow.min.js"></script>
+    <script src="WOW.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      new WOW().init();
+      AOS.init();
+    </script>
+
+    <script>
+
+    </script>
+  </body>
+</html>
